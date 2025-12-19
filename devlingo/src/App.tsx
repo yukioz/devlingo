@@ -1,33 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import LoadingScreen from './components/LoadingScreen';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isFadingOut, setIsFadingOut] = useState<boolean>(false);
+
+  useEffect(() => {
+
+    const timer = setTimeout(() => {
+      setIsFadingOut(true);
+
+      const fadeOutTimer = setTimeout(() => {
+        setIsLoading(false);
+
+
+        console.log('is loading: ', isLoading);
+      }, 500);
+
+      console.log('is fadingout: ', isFadingOut);
+
+      return () => clearTimeout(fadeOutTimer);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return isLoading ? (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <LoadingScreen isFadingOut={isFadingOut} />
+    </>
+  ) : (
+    <>
+      <h1>Entrei</h1>
     </>
   )
 }

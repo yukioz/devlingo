@@ -25,7 +25,7 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": ".",
     "paths": {
-      "@/": ["src/*"] // facilita o uso de '@' como atalho para a pasta 'src'
+      "@/*": ["src/*"] // facilita o uso de '@' como atalho para a pasta 'src'
     }
   },
   "include": ["src"]
