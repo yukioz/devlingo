@@ -3,11 +3,11 @@ import LoadingScreen from "./components/LoadingScreen";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Login from "./pages/LoginPage";
 import Signup from "./pages/SingupPage";
-// import ProtectedRoute from "./components/ProtectedRoute";
-// import Home from "./pages/Home";
-// import LessonScreen from "./pages/LessonScreen";
-// import LessonSuccessScreen from "./pages/LessonSuccessScreen";
-// import LessonFailureScreen from "./pages/LessonFailureScreen";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Home from "./pages/Home";
+import LessonScreen from "./pages/LessonScreen";
+import LessonSuccessScreen from "./pages/LessonSuccessScreen";
+import LessonFailureScreen from "./pages/LessonFailureScreen";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,7 +37,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
 
-          {/* <Route
+          <Route
             path="/"
             element={
               <ProtectedRoute>
@@ -71,7 +71,7 @@ function App() {
                 <LessonScreen />
               </ProtectedRoute>
             }
-          /> */}
+          />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

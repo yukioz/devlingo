@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import Owl from "@/assets/images/devlingo-char.png";
-import { lessonsData } from "@/mocks/lessonsData";
+import { lessonsData } from "@/mock/LessonsData";
 import { useNavigate } from "react-router-dom";
 
 interface LessonModalProps {

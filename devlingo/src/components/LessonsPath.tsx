@@ -3,7 +3,7 @@ import LessonNode from "./LessonNode";
 import { useState } from "react";
 import LessonModal from "./LessonModal";
 import { useCompletedLessons } from "@/hooks/useCompletedLessons";
-import { lessonsData } from "@/mocks/lessonsData";
+import { lessonsData } from "@/mock/LessonsData";
 
 // Renderiza uma coluna de estrelas com leve offset e sombra suave
 const LessonsPath = () => {
